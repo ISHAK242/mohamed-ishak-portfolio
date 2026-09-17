@@ -1208,26 +1208,90 @@ document.getElementById('stageNext')?.addEventListener('click',()=>{
 renderAtlasIndex();renderAtlasStage();
 
 </script>
-</body>
-</html><style>
-/* V8 — MOBILE ALIGNMENT FIX */
+
+<style id="mobile-responsive-v9">
+/* V9 — true mobile-first responsive layer. Desktop layout is intentionally untouched. */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+img,svg,video,canvas{max-width:100%;height:auto}
+*,*::before,*::after{box-sizing:border-box}
 @media (max-width: 900px){
-  html, body { max-width:100%; overflow-x:hidden; }
-  .bento { grid-template-columns:1fr !important; width:100%; }
-  .bcard { min-width:0; width:100%; box-sizing:border-box; }
-  .timeline, .tl { min-width:0; }
-  .tl { grid-template-columns:78px minmax(0,1fr); }
-  .tl h4, .tl p { overflow-wrap:anywhere; }
-  .project-atlas, .project-stage, .stage-content { min-width:0; max-width:100%; }
+  .container{width:min(92vw,680px);max-width:calc(100vw - 32px);margin-left:auto;margin-right:auto}
+  section{overflow:clip}
+  .nav{padding-left:0;padding-right:0}
+  .navlinks{display:none!important}
+  .hero{grid-template-columns:1fr!important;gap:18px!important;min-height:auto!important;padding:112px 0 58px!important}
+  .hero-copy{max-width:100%!important}
+  .hero h1{max-width:100%!important;font-size:clamp(52px,13vw,82px)!important}
+  .hero-visual{height:auto!important;min-height:420px!important;margin-top:8px}
+  .portrait{width:min(430px,88vw)!important;height:min(500px,105vw)!important;margin:auto}
+  .float{display:none!important}
+  .bento{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;gap:18px!important;margin-top:32px!important}
+  .bcard{width:100%!important;min-width:0!important;max-width:100%!important;overflow:hidden!important;padding:28px!important}
+  .bcard:first-child{min-height:0!important;display:block!important}
+  .timeline{width:100%!important;min-width:0!important}
+  .tl{display:grid!important;grid-template-columns:82px minmax(0,1fr)!important;min-width:0!important;width:100%!important;gap:12px!important}
+  .tl>div{min-width:0!important}
+  .tl time,.tl h4,.tl p{min-width:0!important;overflow-wrap:anywhere!important;word-break:normal!important}
+  .ai-grid,.two{grid-template-columns:minmax(0,1fr)!important}
+  .skillgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .stat{min-width:0!important}
+  .project-atlas{grid-template-columns:minmax(0,1fr)!important;width:100%!important;min-width:0!important}
+  .project-index{width:100%!important;min-width:0!important;border-right:0!important;border-bottom:1px solid rgba(255,255,255,.08)!important;padding:18px 0!important}
+  #indexList{width:100%!important;min-width:0!important;display:flex!important;overflow-x:auto!important;overflow-y:hidden!important}
+  .index-row{flex:0 0 190px!important;min-width:190px!important}
+  .project-stage{width:100%!important;min-width:0!important;overflow:hidden!important}
+  .stage-content{grid-template-columns:minmax(0,1fr)!important;width:100%!important;min-width:0!important;gap:24px!important}
+  .stage-copy{max-width:100%!important;min-width:0!important}
+  .stage-copy h3{max-width:100%!important;overflow-wrap:anywhere!important}
+  .stage-copy p{max-width:100%!important}
+  .stage-visual{min-width:0!important;width:100%!important}
+  .command-dock{right:50%!important;left:auto!important;top:auto!important;bottom:calc(12px + env(safe-area-inset-bottom))!important;transform:translateX(50%)!important;display:flex!important;flex-direction:row!important;align-items:center!important;max-width:calc(100vw - 24px)!important;overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;border-radius:16px!important;padding:6px!important;gap:3px!important}
+  .dock-btn{flex:0 0 38px!important;width:38px!important;height:38px!important}
+  .dock-sep{width:1px!important;height:26px!important;flex:0 0 1px!important}
+  .dock-btn span{display:none!important}
 }
 @media (max-width:560px){
-  .container { width:calc(100% - 32px) !important; max-width:100%; box-sizing:border-box; }
-  section { overflow:hidden; }
-  .bento { gap:14px; }
-  .bcard { padding:24px 22px; border-radius:20px; }
-  .bcard p { font-size:13px; line-height:1.8; }
-  .tl { grid-template-columns:68px minmax(0,1fr); }
-  .tl h4 { font-size:12px; }
-  .tl p { font-size:10px; line-height:1.55; }
+  .container{width:calc(100vw - 28px)!important;max-width:none!important}
+  section{padding:76px 0!important}
+  .nav{height:48px!important}
+  .logo{font-size:14px!important}
+  .navright .pill{padding:8px 10px!important;font-size:10px!important}
+  .hero{padding:92px 0 42px!important}
+  .eyebrow{font-size:9px!important;letter-spacing:.12em!important;margin-bottom:18px!important}
+  .hero h1{font-size:clamp(48px,14vw,68px)!important;line-height:.91!important;letter-spacing:-.07em!important}
+  .hero-copy{font-size:14px!important;line-height:1.75!important;margin:22px 0!important}
+  .actions{width:100%!important;display:grid!important;grid-template-columns:1fr!important;gap:9px!important}
+  .btn{width:100%!important;justify-content:center!important}
+  .hero-visual{min-height:360px!important;margin-top:6px!important}
+  .portrait{width:min(360px,92vw)!important;height:390px!important}
+  section h2.section-title{font-size:clamp(31px,8vw,45px)!important;line-height:1!important;max-width:100%!important}
+  .section-intro{font-size:13px!important;line-height:1.75!important;max-width:100%!important}
+  .bento{gap:14px!important;margin-top:26px!important}
+  .bcard{padding:23px 20px!important;border-radius:20px!important}
+  .bcard h3{font-size:22px!important}
+  .bcard p{font-size:13px!important;line-height:1.78!important}
+  .tl{grid-template-columns:72px minmax(0,1fr)!important;gap:10px!important;padding:17px 0!important}
+  .tl time{font-size:10px!important;white-space:nowrap!important}
+  .tl h4{font-size:13px!important;line-height:1.35!important}
+  .tl p{font-size:11px!important;line-height:1.55!important}
+  .skillgrid{grid-template-columns:1fr!important}
+  .stats{grid-template-columns:1fr 1fr!important}
+  .stat{padding:20px 14px!important}
+  .stat b{font-size:30px!important}
+  .stat span{font-size:8px!important}
+  .project-atlas{margin-top:24px!important}
+  .index-row{flex-basis:170px!important;min-width:170px!important;padding:13px!important}
+  .project-stage{padding:24px 18px 82px!important}
+  .stage-copy h3{font-size:clamp(38px,11vw,52px)!important}
+  .stage-copy p{font-size:13px!important;line-height:1.75!important}
+  .flow{flex-direction:column!important;align-items:stretch!important}
+  .flow>i{width:1px!important;height:18px!important;margin:auto!important}
+  footer{display:block!important}
+  footer div+div{margin-top:12px!important}
+  .command-dock{max-width:calc(100vw - 18px)!important;bottom:calc(8px + env(safe-area-inset-bottom))!important}
 }
 </style>
+
+</body>
+</html>
